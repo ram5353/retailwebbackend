@@ -17,28 +17,14 @@ import java.util.List;
 public class ProductsController {
 
     private final ProductsRepository productsRepository;
-    private final TransactionsRepository transactionsRepository;
-    private final HouseHoldRepository houseHoldRepository;
 
-    public ProductsController(ProductsRepository productsRepository, TransactionsRepository transactionsRepository, HouseHoldRepository houseHoldRepository) {
+    public ProductsController(ProductsRepository productsRepository) {
         this.productsRepository = productsRepository;
-        this.transactionsRepository = transactionsRepository;
-        this.houseHoldRepository = houseHoldRepository;
     }
 
     @GetMapping("/all")
     public List<Products> getProducts() {
         return productsRepository.findAll();
-    }
-
-    @GetMapping("allTrans")
-    public List<Transactions> getAllTransactions() {
-        return transactionsRepository.findAll();
-    }
-
-    @GetMapping("allhouseholds")
-    public List<HouseHolds> getAllHouseHolds() {
-        return houseHoldRepository.findAll();
     }
 
 }
