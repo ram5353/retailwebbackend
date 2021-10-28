@@ -3,7 +3,6 @@ package com.dev.retailwebbackend.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Getter
 @Setter
@@ -19,7 +18,7 @@ public class Transactions {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "basketNum", referencedColumnName = "productNum")
     private Products products;
-    private Date data;
+    private String date;
     private long spend;
     private int units;
     private String storeRegion;
