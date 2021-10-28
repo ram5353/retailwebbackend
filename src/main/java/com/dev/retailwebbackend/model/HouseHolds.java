@@ -2,9 +2,8 @@ package com.dev.retailwebbackend.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,14 +14,19 @@ public class HouseHolds {
 
     @Id
     @GeneratedValue
+    @Column(name = "hshd_num")
     private int hshdNum;
-    private Boolean loyaltyFlag;
+    private String loyaltyFlag;
     private String ageRange;
     private String maritalStatus;
     private String incomeRange;
-    private Boolean homeownerDesc;
+    private String homeownerDesc;
     private String hshdComposition;
-    private int hshdSize;
-    private int children;
+    private String hshdSize;
+    private String children;
+
+    @OneToMany(targetEntity = Transactions.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "transactions_fk", referencedColumnName = "hshd_num")
+    private List<Transactions> transactions;
 
 }
