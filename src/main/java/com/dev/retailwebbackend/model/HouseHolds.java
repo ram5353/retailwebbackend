@@ -26,7 +26,7 @@ public class HouseHolds {
     private String children;
 
     @OneToMany(targetEntity = Transactions.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "transactions_fk", referencedColumnName = "hshd_num")
+    @JoinColumn(name = "hshd_num", referencedColumnName = "hshd_num")
     private List<Transactions> transactions;
 
 }

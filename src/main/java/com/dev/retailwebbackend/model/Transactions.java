@@ -14,6 +14,8 @@ public class Transactions {
     @Id
     @GeneratedValue
     private int basketNum;
+
+    @Column(name = "hshd_num")
     private int hshdNum;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "basketNum", referencedColumnName = "productNum")
