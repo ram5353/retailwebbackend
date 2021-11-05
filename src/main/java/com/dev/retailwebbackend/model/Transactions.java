@@ -13,12 +13,15 @@ public class Transactions {
 
     @Id
     @GeneratedValue
+    private int id;
+
     private int basketNum;
 
     @Column(name = "hshd_num")
     private int hshdNum;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "basketNum", referencedColumnName = "productNum")
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "productNum", referencedColumnName = "productNum")
     private Products products;
     private String date;
     private long spend;

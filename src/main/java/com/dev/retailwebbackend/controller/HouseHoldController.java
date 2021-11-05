@@ -1,8 +1,8 @@
 package com.dev.retailwebbackend.controller;
 
 
+import com.dev.retailwebbackend.dto.HouseholdsDto;
 import com.dev.retailwebbackend.model.HouseHolds;
-import com.dev.retailwebbackend.model.Transactions;
 import com.dev.retailwebbackend.repository.HouseHoldRepository;
 import com.dev.retailwebbackend.services.HouseHoldService;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +29,12 @@ public class HouseHoldController {
     @GetMapping("/datapull/{houseHoldNumber}")
     public HouseHolds getAllData(@PathVariable int houseHoldNumber) {
         return houseHoldService.getHouseHoldData(houseHoldNumber);
+    }
+
+    @GetMapping("/getInfo")
+    public List<HouseholdsDto> getJoinInformation(){
+        System.out.println(houseHoldRepository.getJoinInformation().size());
+        return houseHoldRepository.getJoinInformation();
     }
 
 }

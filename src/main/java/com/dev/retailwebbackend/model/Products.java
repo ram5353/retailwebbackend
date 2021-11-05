@@ -18,6 +18,7 @@ public class Products {
     @Id
     @GeneratedValue
     private int productNum;
+
     private String department;
     private String commodity;
     private String brandType;
